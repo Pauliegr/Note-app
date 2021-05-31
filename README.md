@@ -1,6 +1,5 @@
 Ecrire une application de notes en Node.js.
-Les notes seront stockées dans un 
-fichier data.json
+Les notes seront stockées dans un fichier data.json
 
 node app.js
 - `list` = Affiche les titres de toutes 

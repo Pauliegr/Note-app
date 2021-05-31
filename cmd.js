@@ -67,7 +67,7 @@ yargs.command({
                 const supNote = {
                     title: argv.title,
                 }
-                notes.pop(supNote);
+                notes.pop(supNote); /*<-Retire le dernier élément du tableau*/
                 // console.log(notes);
                 const notesJSON = JSON.stringify(notes);
                 // console.log(notesJSON);
@@ -93,11 +93,11 @@ yargs.command({
                 const notes = JSON.parse(data);
                 console.log(notes);
 
-                const search = {
+                const searchNote = {
                     title : argv.title
                 }
                 
-                if ( search === notes.title){
+                if ( searchNote === notes.title){
                     console.log(`${note.title}, ${note.message}`);
                 }
                 else {
