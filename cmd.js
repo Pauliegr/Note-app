@@ -31,6 +31,11 @@ yargs.command({
             describe: "Message de ma note",
             demandOption: false,
             type: "string"
+        },
+        id: {
+            describe: "Numéro de la note",
+            demandOption: true,
+            type: "string"
         }
     },
     handler: (argv) => {
@@ -39,10 +44,16 @@ yargs.command({
             else {
                 const notes = JSON.parse(data);
                 const newNote = {
+                    id: argv.id,
                     title: argv.title,
                     message: argv.message
                 }
-                notes.push(newNote);
+                if(newNote.id === notes.id){
+                    console.log(chalk.red("Id existant"));
+                } else {
+                    notes.push(newNote);
+                    
+                }
                 const notesJSON = JSON.stringify(notes);
                 fs.writeFile("data.json", notesJSON, (err) => {
                     if(err) console.log(err);
@@ -98,7 +109,7 @@ yargs.command({
                 }
                 
                 if ( searchNote === notes.title){
-                    console.log(`${note.title}, ${note.message}`);
+                    console.log(`${notes.title}, ${notes.message}`);
                 }
                 else {
                     console.log(chalk.red("Note non trouvée"));

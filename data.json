@@ -1,10 +1,13 @@
 [{
+    "id": "1",
     "title": "Ma note n°1",
     "message": "Truc à faire"
 }, {
+    "id": "2",
     "title": "Ma note",
     "message": "Contenu de ma note"
 }, {
+    "id": "3",
     "title": "Ma note n°2",
     "message": "Truc à jamais faire"
 }]
