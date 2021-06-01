@@ -13,7 +13,7 @@ yargs.command({
             else {
                 const notes = JSON.parse(data);
                 notes.forEach(note => {
-                    console.log(`${note.title}`);
+                    console.log(`${note.id} : ${note.title}`);
                 })
             }
         })
@@ -48,13 +48,13 @@ yargs.command({
                     title: argv.title,
                     message: argv.message
                 }
-                if(newNote.id === notes.id){
+                if(argv.id === notes.id){
                     console.log(chalk.red("Id existant"));
                 } else {
-                    notes.push(newNote);
-                    
+                    notes.push(newNote);                    
                 }
                 const notesJSON = JSON.stringify(notes);
+
                 fs.writeFile("data.json", notesJSON, (err) => {
                     if(err) console.log(err);
                     else {
